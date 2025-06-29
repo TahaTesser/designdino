@@ -1,1 +1,1 @@
-# designdino_compose
+# DesignDino for Jetpack Compose

@@ -1,1 +1,1 @@
-# designdino_swiftui
+# DesignDino for Apple SwiftUI
