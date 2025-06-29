@@ -1,0 +1,7 @@
+name: _
+publish_to: none
+environment:
+  sdk: ^3.8.1
+workspace:
+  - packages/designdino
+  - packages/designdino/example

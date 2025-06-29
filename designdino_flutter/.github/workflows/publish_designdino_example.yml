@@ -1,0 +1,36 @@
+name: Publish DesignDino Example
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: packages/designdino/example
+
+      - name: Build for Web
+        run: flutter build web --base-href "/designdino/"
+        working-directory: packages/designdino/example
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
+        with:
+          clean: true
+          folder: packages/designdino/example/build/web
+          force: false
